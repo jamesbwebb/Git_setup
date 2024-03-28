@@ -9,22 +9,21 @@ apt install git
 
 # Use whatever email and username is applicable.
 git config --global user.email "jamesbennettwebb@gmail.com"
-git config --global user.name "James"
+git config --global user.name "jamesbwebb"
 
-# remote repositories using the url of the git repository to clone
-# Support for password authentication was removed on August 13, 2021
-# Connecting to github with SSH
-ssh-keygen -t ed25519 -C "your_email@example.com"
-# You will then be required to type a filename for the key to be saved in.
-# Open the file.pub and copy ALL of the text.
-# Login to github > Top right corner > Settings > SSH and GPG keys > New SSH key
-# Add a title and past in your key (This will have your email at the end)
+cd ~/.ssh
+ssh-keygen -o -i rsa -C "<Your email here>"
+# I set this up without adding folders or a special key that I will forget.
 
-##ran out of time https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey?platform=linux is where I left off.##
+ls # We are looking for the .pub file contents
+cat is_rsa.pub
 
+# Copy this and paste it into gethub.
+# Login, button in top right corner, settings,
+# ssh and gpg keys, create new, paste in here and add a title.
 
-#git clone https://github.com/jamesbwebb/seanwebbglass
+# Then in the web browser, go to the directory we want to clone.
+# Click on the "Code" dropdown, "Local" tab, SSH and copy the git@github.com line
+git clone <paste the above line here>
 
-# git init or git clone
-# This initializes a new git repo in the cwd
-git init
+# At this point we can pull and push from the remote repository.
